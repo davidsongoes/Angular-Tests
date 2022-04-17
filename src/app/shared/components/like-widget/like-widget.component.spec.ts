@@ -18,14 +18,22 @@ describe(LikeWidgetComponent.name, () => {
       imports: [LikeWidgetModule],
     }).compileComponents();
     fixture = TestBed.createComponent(LikeWidgetComponent);
+    fixture.detectChanges();
   });
   it(`Should create component`, () => {
     const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 
-  it(`Should auto generate ID when ID input property is missing`, () => {
+  it(`Should AUTO generate ID when ID input property is MISSING`, () => {
     const component = fixture.componentInstance;
     expect(component.id).toBeTruthy();
+  });
+
+  it(`Should NOT generate ID when ID input property is PRESENT`, () => {
+    const component = fixture.componentInstance;
+    const someId = "someId";
+    component.id = someId;
+    expect(component.id).toBe("someId");
   });
 });
