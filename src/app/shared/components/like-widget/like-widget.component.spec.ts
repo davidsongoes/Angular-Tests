@@ -5,8 +5,8 @@ import { ComponentFixture, TestBed } from "@angular/core/testing";
 import { LikeWidgetComponent } from "./like-widget.component";
 
 describe(LikeWidgetComponent.name, () => {
-  let fixture: ComponentFixture<LikeWidgetComponent>;
-
+  let fixture: ComponentFixture<LikeWidgetComponent> = null;
+  let component: LikeWidgetComponent = null;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       // Test First Component After
@@ -18,22 +18,21 @@ describe(LikeWidgetComponent.name, () => {
       imports: [LikeWidgetModule],
     }).compileComponents();
     fixture = TestBed.createComponent(LikeWidgetComponent);
-    fixture.detectChanges();
+    component = fixture.componentInstance;
   });
   it(`Should create component`, () => {
-    const component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 
   it(`Should AUTO generate ID when ID input property is MISSING`, () => {
-    const component = fixture.componentInstance;
+    fixture.detectChanges();
     expect(component.id).toBeTruthy();
   });
 
   it(`Should NOT generate ID when ID input property is PRESENT`, () => {
-    const component = fixture.componentInstance;
     const someId = "someId";
     component.id = someId;
+    fixture.detectChanges();
     expect(component.id).toBe("someId");
   });
 });
