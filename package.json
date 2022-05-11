@@ -10,6 +10,7 @@
     "test-ci": "ng test --watch=false --reporters junit --browsers ChromeHeadless",
     "test-custom": "ng test --watch=false --browsers FirefoxCustom",
     "test-wsl": "ng test --browsers ChromeHeadless",
+    "test-coverage": "ng test --watch=false --sourceMap=true --code-coverage=true --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
